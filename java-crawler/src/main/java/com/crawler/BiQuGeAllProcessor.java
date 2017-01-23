@@ -6,8 +6,10 @@ import org.slf4j.LoggerFactory;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
+import us.codecraft.webmagic.monitor.SpiderMonitor;
 import us.codecraft.webmagic.processor.PageProcessor;
 
+import javax.management.JMException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,18 +27,20 @@ public class BiQuGeAllProcessor implements PageProcessor {
     // 部分一：抓取网站的相关配置，包括编码、抓取间隔、重试次数等
     private Site site = Site.me().setRetryTimes(3).setSleepTime(1000);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws JMException {
 
-        Spider.create(new BiQuGeAllProcessor())
+        Spider spider = Spider.create(new BiQuGeAllProcessor())
                 //从"https://github.com/code4craft"开始抓
                 .addUrl(URL_CRAWLER)
 //                .addUrl("http://www.biquge.com/21_21470/")
 //                .addPipeline(new JsonFilePipeline("D:\\webmagic\\"))
                 .addPipeline(new CustomPipeline("D:\\webmagic\\"))
                 //开启5个线程抓取
-                .thread(5)
+                .thread(5);
                 //启动爬虫
-                .run();
+//                .run();
+        SpiderMonitor.instance().register(spider);
+        spider.run();
     }
 
     @Override
