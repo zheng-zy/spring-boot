@@ -9264,7 +9264,7 @@
             }
 
             // W4. A single European separator between two European numbers
-            // changes to a European number. A single common separator between
+            // changes to a European number. A single config separator between
             // two numbers of the same type changes to that type.
             for (var i = 1, prev = types[0]; i < len - 1; ++i) {
                 var type = types[i];

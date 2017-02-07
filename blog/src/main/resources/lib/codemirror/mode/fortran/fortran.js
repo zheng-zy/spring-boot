@@ -24,7 +24,7 @@
             "abstract", "accept", "allocatable", "allocate",
             "array", "assign", "asynchronous", "backspace",
             "bind", "block", "byte", "call", "case",
-            "class", "close", "common", "contains",
+            "class", "close", "config", "contains",
             "continue", "cycle", "data", "deallocate",
             "decode", "deferred", "dimension", "do",
             "elemental", "else", "encode", "end",

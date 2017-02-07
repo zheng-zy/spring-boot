@@ -255,7 +255,7 @@ div.CodeMirror-overwrite div.CodeMirror-cursor {
     color: #f00;
 }
 
-/* Default styles for common addons */
+/* Default styles for config addons */
 
 div.CodeMirror span.CodeMirror-matchingbracket {
     color: #0f0;

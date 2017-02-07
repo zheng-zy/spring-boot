@@ -35,7 +35,7 @@
         'color_convert', 'color_exchange', 'color_quan', 'color_range_map',
         'colorbar', 'colorize_sample', 'colormap_applicable',
         'colormap_gradient', 'colormap_rotation', 'colortable',
-        'comfit', 'command_line_args', 'common', 'compile_opt', 'complex',
+        'comfit', 'command_line_args', 'config', 'compile_opt', 'complex',
         'complexarr', 'complexround', 'compute_mesh_normals', 'cond', 'congrid',
         'conj', 'constrained_min', 'contour', 'contour', 'convert_coord',
         'convol', 'convol_fft', 'coord2to3', 'copy_lun', 'correlate',

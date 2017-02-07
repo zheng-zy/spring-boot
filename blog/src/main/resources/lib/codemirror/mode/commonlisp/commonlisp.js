@@ -151,6 +151,6 @@
         };
     });
 
-    CodeMirror.defineMIME("text/x-common-lisp", "commonlisp");
+    CodeMirror.defineMIME("text/x-config-lisp", "commonlisp");
 
 });

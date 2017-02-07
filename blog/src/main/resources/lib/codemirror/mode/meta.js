@@ -34,7 +34,7 @@
         },
         {
             name: "Common Lisp",
-            mime: "text/x-common-lisp",
+            mime: "text/x-config-lisp",
             mode: "commonlisp",
             ext: ["cl", "lisp", "el"],
             alias: ["lisp"]

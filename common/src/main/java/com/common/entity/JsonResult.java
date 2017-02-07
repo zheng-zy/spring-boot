@@ -15,9 +15,14 @@ public class JsonResult {
 
     public static final JsonResult SUCCESS = new JsonResult(true, "", null);
     public static final JsonResult FAIL = new JsonResult(false, "", null);
-
     private boolean success;
     private String msg;
     private Object data;
+
+    public JsonResult(Object data) {
+        this.success = true;
+        this.msg = "";
+        this.data = data;
+    }
 
 }

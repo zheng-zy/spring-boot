@@ -11,6 +11,7 @@
         <module>blog</module>
         <module>common</module>
         <module>java8</module>
+        <module>api</module>
     </modules>
     <packaging>pom</packaging>
 
