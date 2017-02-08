@@ -50,7 +50,7 @@ public class CountryController {
 
     @RequestMapping
     public ModelAndView getAll(Country country) {
-        ModelAndView result = new ModelAndView("index");
+        ModelAndView result = new ModelAndView("mybatis");
         List<Country> countryList = countryService.getAll(country);
         result.addObject("pageInfo", new PageInfo<Country>(countryList));
         result.addObject("queryParam", country);
