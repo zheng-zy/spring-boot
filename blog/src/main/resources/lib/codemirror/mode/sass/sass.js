@@ -353,7 +353,7 @@
                 return "operator";
 
             // If we haven't returned by now, we move 1 character
-            // and return an result
+            // and return an error
             stream.next();
             return null;
         }

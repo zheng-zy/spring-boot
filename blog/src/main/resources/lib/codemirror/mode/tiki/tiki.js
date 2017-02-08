@@ -86,7 +86,7 @@
                     if (stream.eat("=")) {//titleBar
                         return chain(inBlock("header string", "=-", inText));
                     } else if (stream.eat("-")) {//deleted
-                        return chain(inBlock("result tw-deleted", "--", inText));
+                        return chain(inBlock("error tw-deleted", "--", inText));
                     }
                     break;
                 case "=": //underline

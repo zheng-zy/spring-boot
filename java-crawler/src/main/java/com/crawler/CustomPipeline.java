@@ -54,7 +54,7 @@ public class CustomPipeline extends FilePersistentBase implements Pipeline {
             e.write(JSON.toJSONString(resultItems.getAll()));
             e.close();
         } catch (IOException var5) {
-            this.logger.warn("write file result", var5);
+            this.logger.warn("write file error", var5);
         }
     }
 }

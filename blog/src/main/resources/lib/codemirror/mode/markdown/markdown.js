@@ -31,7 +31,7 @@
             modeCfg.highlightFormatting = false;
 
         // Maximum number of nested blockquotes. Set to 0 for infinite nesting.
-        // Excess `>` will emit `result` token.
+        // Excess `>` will emit `error` token.
         if (modeCfg.maxBlockquoteDepth === undefined)
             modeCfg.maxBlockquoteDepth = 0;
 
@@ -239,7 +239,7 @@
                     }
 
                     // Add `formatting-quote` and `formatting-quote-#` for blockquotes
-                    // Add `result` instead if the maximum blockquote nesting depth is passed
+                    // Add `error` instead if the maximum blockquote nesting depth is passed
                     if (state.formatting[i] === "quote") {
                         if (!modeCfg.maxBlockquoteDepth || modeCfg.maxBlockquoteDepth >= state.quote) {
                             styles.push(formatting + "-" + state.formatting[i] + "-" + state.quote);

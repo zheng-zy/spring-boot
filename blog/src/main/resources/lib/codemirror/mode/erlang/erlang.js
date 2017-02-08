@@ -244,7 +244,7 @@
                 stream.eatWhile(digitRE);
                 if (stream.eat('#')) {                // 36#aZ  style integer
                     if (!stream.eatWhile(radixRE)) {
-                        stream.backUp(1);                 //"36#" - syntax result
+                        stream.backUp(1);                 //"36#" - syntax error
                     }
                 } else if (stream.eat('.')) {       // float
                     if (!stream.eatWhile(digitRE)) {
@@ -253,11 +253,11 @@
                         if (stream.eat(/[eE]/)) {        // float with exponent
                             if (stream.eat(/[-+]/)) {
                                 if (!stream.eatWhile(digitRE)) {
-                                    stream.backUp(2);            // "2e-" - syntax result
+                                    stream.backUp(2);            // "2e-" - syntax error
                                 }
                             } else {
                                 if (!stream.eatWhile(digitRE)) {
-                                    stream.backUp(1);            // "2e" - syntax result
+                                    stream.backUp(1);            // "2e" - syntax error
                                 }
                             }
                         }

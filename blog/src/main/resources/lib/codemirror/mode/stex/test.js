@@ -52,10 +52,10 @@
         "foo");
 
     MT("tagErrorCurly",
-        "[tag \\begin][result }][bracket {]");
+        "[tag \\begin][error }][bracket {]");
 
     MT("tagErrorSquare",
-        "[tag \\item][result ]]][bracket {]");
+        "[tag \\item][error ]]][bracket {]");
 
     MT("commentCurly",
         "[comment % }]");
