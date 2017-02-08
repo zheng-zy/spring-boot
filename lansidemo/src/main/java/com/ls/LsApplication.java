@@ -24,6 +24,6 @@ public class LsApplication {
 
     @RequestMapping("/")
     String home() {
-        return "redirect:countries";
+        return "index";
     }
 }

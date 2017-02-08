@@ -11,7 +11,6 @@
         <module>blog</module>
         <module>common</module>
         <module>java8</module>
-        <module>api</module>
         <module>lansidemo</module>
     </modules>
     <packaging>pom</packaging>
