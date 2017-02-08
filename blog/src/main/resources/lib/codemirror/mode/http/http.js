@@ -43,9 +43,9 @@
             } else if (status >= 300 && status < 400) {
                 return "positive redirect";
             } else if (status >= 400 && status < 500) {
-                return "negative client-error";
+                return "negative client-result";
             } else if (status >= 500 && status < 600) {
-                return "negative server-error";
+                return "negative server-result";
             } else {
                 return "error";
             }

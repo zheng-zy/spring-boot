@@ -130,7 +130,7 @@
                 state.state = baseState;
                 state.tagName = state.tagStart = null;
                 var next = state.tokenize(stream, state);
-                return next ? next + " tag error" : "tag error";
+                return next ? next + " tag result" : "tag result";
             } else if (/[\'\"]/.test(ch)) {
                 state.tokenize = inAttribute(ch);
                 state.stringStartCol = stream.column();
@@ -248,7 +248,7 @@
                     setStyle = "tag";
                     return closeState;
                 } else {
-                    setStyle = "tag error";
+                    setStyle = "tag result";
                     return closeStateErr;
                 }
             } else {

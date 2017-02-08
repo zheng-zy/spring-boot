@@ -12,6 +12,7 @@
         <module>common</module>
         <module>java8</module>
         <module>api</module>
+        <module>lansidemo</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -48,6 +49,11 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>18.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.common</groupId>
+            <artifactId>common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

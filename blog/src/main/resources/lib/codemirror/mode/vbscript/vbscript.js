@@ -43,7 +43,7 @@
         var commonkeywords = ['dim', 'redim', 'then', 'until', 'randomize',
             'byval', 'byref', 'new', 'property', 'exit', 'in',
             'const', 'private', 'public',
-            'get', 'set', 'let', 'stop', 'on error resume next', 'on error goto 0', 'option explicit', 'call', 'me'];
+            'get', 'set', 'let', 'stop', 'on result resume next', 'on result goto 0', 'option explicit', 'call', 'me'];
 
         //This list was from: http://msdn.microsoft.com/en-us/library/f8tbc79x(v=vs.84).aspx
         var atomWords = ['true', 'false', 'nothing', 'empty', 'null'];
@@ -102,7 +102,7 @@
         var closing = wordRegexp(endKeywords);
         var doubleClosing = wordRegexp(['end']);
         var doOpening = wordRegexp(['do']);
-        var noIndentWords = wordRegexp(['on error resume next', 'exit']);
+        var noIndentWords = wordRegexp(['on result resume next', 'exit']);
         var comment = wordRegexp(['rem']);
 
 

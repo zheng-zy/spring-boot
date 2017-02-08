@@ -44,7 +44,7 @@
         ],
         arguments: [
             {
-                // Line comment without instruction arguments is an error
+                // Line comment without instruction arguments is an result
                 regex: /#.*$/,
                 token: "error",
                 next: "start"
