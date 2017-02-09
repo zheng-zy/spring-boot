@@ -13,7 +13,7 @@ public class Role {
 
     private Date updateTime;
 
-    private String desc;
+    private String memo;
 
     public Integer getId() {
         return id;
@@ -55,11 +55,11 @@ public class Role {
         this.updateTime = updateTime;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getMemo() {
+        return memo;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc == null ? null : desc.trim();
+    public void setMemo(String memo) {
+        this.memo = memo == null ? null : memo.trim();
     }
 }

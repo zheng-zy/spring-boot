@@ -27,6 +27,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler//处理所有异常
     @ResponseBody //在返回自定义相应类的情况下必须有，这是@ControllerAdvice注解的规定
     public JsonResult exceptionHandler(Exception e, HttpServletRequest request, HttpServletResponse response) {
+        e.printStackTrace();
         JsonResult result = new JsonResult();
         result.setSuccess(false);
         result.setMsg(e.getMessage());

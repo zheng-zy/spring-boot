@@ -1,35 +1,40 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ls.mapper.RoleMapper">
     <resultMap id="BaseResultMap" type="com.ls.model.Role">
-        <id column="id" property="id" jdbcType="INTEGER"/>
-        <result column="name" property="name" jdbcType="VARCHAR"/>
-        <result column="status" property="status" jdbcType="INTEGER"/>
-        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
-        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
-        <result column="desc" property="desc" jdbcType="VARCHAR"/>
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="memo" jdbcType="VARCHAR" property="memo"/>
     </resultMap>
     <sql id="Base_Column_List">
-    id, name, status, create_time, update_time, desc
-  </sql>
-    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        id, name, status, create_time, update_time, memo
+    </sql>
+    <select id="selectAll" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tbl_role
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from tbl_role
         where id = #{id,jdbcType=INTEGER}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from tbl_role
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
+        DELETE FROM tbl_role
+        WHERE id = #{id,jdbcType=INTEGER}
+    </delete>
     <insert id="insert" parameterType="com.ls.model.Role">
-    insert into tbl_role (id, name, status, 
-      create_time, update_time, desc
-      )
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{desc,jdbcType=VARCHAR}
-      )
-  </insert>
+        INSERT INTO tbl_role (id, name, status,
+        create_time, update_time, memo
+        )
+        VALUES (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER},
+        #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{memo,jdbcType=VARCHAR}
+        )
+    </insert>
     <insert id="insertSelective" parameterType="com.ls.model.Role">
         insert into tbl_role
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -48,8 +53,8 @@
             <if test="updateTime != null">
                 update_time,
             </if>
-            <if test="desc != null">
-                desc,
+            <if test="memo != null">
+                memo,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -68,8 +73,8 @@
             <if test="updateTime != null">
                 #{updateTime,jdbcType=TIMESTAMP},
             </if>
-            <if test="desc != null">
-                #{desc,jdbcType=VARCHAR},
+            <if test="memo != null">
+                #{memo,jdbcType=VARCHAR},
             </if>
         </trim>
     </insert>
@@ -88,19 +93,20 @@
             <if test="updateTime != null">
                 update_time = #{updateTime,jdbcType=TIMESTAMP},
             </if>
-            <if test="desc != null">
-                desc = #{desc,jdbcType=VARCHAR},
+            <if test="memo != null">
+                memo = #{memo,jdbcType=VARCHAR},
             </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.ls.model.Role">
-    update tbl_role
-    set name = #{name,jdbcType=VARCHAR},
-      status = #{status,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
-      desc = #{desc,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        UPDATE tbl_role
+        SET name = #{name,jdbcType=VARCHAR},
+        status = #{status,jdbcType=INTEGER},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+        memo = #{memo,jdbcType=VARCHAR}
+        WHERE id = #{id,jdbcType=INTEGER}
+    </update>
+
 </mapper>

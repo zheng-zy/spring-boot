@@ -17,10 +17,10 @@ public class PageController {
         return view;
     }
 
-    @RequestMapping(value = "/{page}", method = RequestMethod.GET)
-    public String list(@PathVariable String page) {
-        return page + "/list";
-    }
+//    @RequestMapping(value = "/{page}", method = RequestMethod.GET)
+//    public String list(@PathVariable String page) {
+//        return page + "/list";
+//    }
 
 
 }

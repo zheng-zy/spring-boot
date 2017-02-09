@@ -1,6 +1,5 @@
 package com.ls;
 
-import com.ls.util.MyMapper;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,7 +15,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 @SpringBootApplication
 //@ServletComponentScan
-@MapperScan(basePackages = "com.ls.mapper", markerInterface = MyMapper.class)
+@MapperScan(basePackages = "com.ls.mapper")
 public class LsApplication {
     public static void main(String[] args) {
         SpringApplication.run(LsApplication.class, args);

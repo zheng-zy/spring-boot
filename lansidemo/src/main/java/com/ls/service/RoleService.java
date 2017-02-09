@@ -2,8 +2,8 @@ package com.ls.service;
 
 import com.ls.mapper.RoleMapper;
 import com.ls.model.Role;
+import com.ls.util.BaseMapper;
 import com.ls.util.BaseServiceImpl;
-import com.ls.util.CMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,7 +21,7 @@ public class RoleService extends BaseServiceImpl<Role, Integer> {
     private RoleMapper roleMapper;
 
     @Override
-    public CMapper getMapper() {
+    public BaseMapper getMapper() {
         return roleMapper;
     }
 

@@ -2,6 +2,7 @@ package com.ls.common.filter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.Assert;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -22,37 +23,32 @@ public class HttpLogFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
-        ByteHttpServletRequestWrapper requestWrapper = null;
+        ByteHttpServletRequestWrapper requestWrapper;
         //碰到这个URL直接跳过过滤
+        Assert.notNull(request, "request must not null!");
         String uri = request.getRequestURI();
-        if ((request != null) && (uri.startsWith("/druid/") || uri.startsWith("/static/"))) {
+        if (uri.startsWith("/druid/") || uri.startsWith("/static/") || uri.startsWith("/favicon")) {
             chain.doFilter(request, response);
             return;
         }
-        if (request != null) {
-            requestWrapper = new ByteHttpServletRequestWrapper(request);
-        }
-        if (requestWrapper == null) {
-            chain.doFilter(null, response);
-        } else {
-            ResponseWrapper responseWrapper = new ResponseWrapper(response);
+        requestWrapper = new ByteHttpServletRequestWrapper(request);
+        ResponseWrapper responseWrapper = new ResponseWrapper(response);
+        try {
             chain.doFilter(requestWrapper, responseWrapper);
-            try {
-                if (!response.isCommitted()) {
-                    ServletOutputStream outputStream = response.getOutputStream();
-                    byte[] responseData = responseWrapper.getBytes();
-                    if (responseData != null && responseData.length > 0) {
-                        outputStream.write(responseData);
-                        outputStream.flush();
-                        outputStream.close();
-                    }
-                    // else{} 什么都不做,因为会重定定向到别的视图，如404视图，不可以现在关闭
+            if (!response.isCommitted()) {
+                ServletOutputStream outputStream = response.getOutputStream();
+                byte[] responseData = responseWrapper.getBytes();
+                if (responseData != null && responseData.length > 0) {
+                    outputStream.write(responseData);
+                    outputStream.flush();
+                    outputStream.close();
                 }
-            } catch (Exception e) {
-                logger.error("url: {}, result msg: {}", requestWrapper.getRequestURL(), e.getMessage());
-            } finally {
-                logger.info("url: {}, req: {}, resp: {}", requestWrapper.getRequestURL(), requestWrapper.getResult(), responseWrapper.getResult());
+                // else{} 什么都不做,因为会重定定向到别的视图，如404视图，不可以现在关闭
             }
+        } catch (Exception e) {
+            logger.error("url: {}, result msg: {}", requestWrapper.getRequestURL(), e.getMessage());
+        } finally {
+            logger.info("url: {}, req: {}, resp: {}", requestWrapper.getRequestURL(), requestWrapper.getResult(), responseWrapper.getResult());
         }
     }
 
