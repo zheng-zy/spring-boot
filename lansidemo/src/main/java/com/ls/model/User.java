@@ -19,11 +19,11 @@ import java.util.Date;
 public class User extends BaseEntity implements Serializable {
 
     private String loginName;
-    private String name;
-    private String password;
-    private Integer status;
+    //    private String name;
+//    private String password;
+//    private Integer status;
     private Date createTime;
     private Date updateTime;
-    private String desc;
+//    private String desc;
 
 }
