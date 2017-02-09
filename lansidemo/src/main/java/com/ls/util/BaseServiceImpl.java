@@ -20,6 +20,7 @@ public abstract class BaseServiceImpl<T, ID extends Serializable> implements Bas
 
     @Override
     public List<T> list(Integer page, Integer rows) {
+        logger.debug("page: {}, rows: {}", page, rows);
         page = page == null ? 0 : page;
         rows = rows == null ? 10 : rows;
         PageHelper.startPage(page, rows);

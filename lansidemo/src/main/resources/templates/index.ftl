@@ -35,7 +35,7 @@
             <li>
                 <span>系统配置</span>
                 <ul>
-                    <li><span><a href="#" onclick="addTab('用户管理','page/user')">用户管理</a></span></li>
+                    <li><span><a href="#" onclick="addTab('用户管理','/user')">用户管理</a></span></li>
                     <li><span><a href="#" onclick="addTab('角色管理','role/index.html')">角色管理</a></span></li>
                     <li><span><a href="#" onclick="addTab('权限管理','admin/permission.html')">权限管理</a></span></li>
                 </ul>

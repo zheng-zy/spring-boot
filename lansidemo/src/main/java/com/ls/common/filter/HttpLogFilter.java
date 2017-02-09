@@ -48,7 +48,11 @@ public class HttpLogFilter extends OncePerRequestFilter {
         } catch (Exception e) {
             logger.error("url: {}, result msg: {}", requestWrapper.getRequestURL(), e.getMessage());
         } finally {
-            logger.info("url: {}, req: {}, resp: {}", requestWrapper.getRequestURL(), requestWrapper.getResult(), responseWrapper.getResult());
+            logger.info("url: {}?{}, req: {}, resp: {}",
+                    requestWrapper.getRequestURL(),
+                    requestWrapper.getQueryString() == null ? "" : requestWrapper.getQueryString(),
+                    requestWrapper.getResult(),
+                    responseWrapper.getResult());
         }
     }
 

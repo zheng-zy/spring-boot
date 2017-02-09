@@ -11,16 +11,38 @@
         var show_dlg;
         $(function () {
             $('#dg').datagrid({
+                url: '/user/list',
+                method: 'get',
+                title: '用户列表',
+                iconCls: 'icon-ok',
+                fit: true,
                 fitColumns: true,
-                striped: true,
                 rownumbers: true,
                 pagination: true,
                 singleSelect: true,
-                url: '/user/list',
+                border: false,
+                striped: true,
+                toolbar: [{
+                    text: '查看详情',
+                    iconCls: 'icon-search',
+                    handler: function () {
+                        viewDetail();
+                    }
+                }, '-', {
+                    iconCls: 'icon-help',
+                    handler: function () {
+                        alert('帮助按钮');
+                    }
+                }],
                 columns: [[
-                    {field: 'id', title: 'Id'},
-                    {field: 'name', title: 'Name'},
-                    {field: 'desc', title: 'Desc', align: 'right'},
+                    {field: 'id', title: 'id'},
+                    {field: 'login_name', title: 'login_name'},
+                    {field: 'name', title: 'name'},
+                    {field: 'password', title: 'password'},
+                    {field: 'status', title: 'status'},
+                    {field: 'create_time', title: 'create_time'},
+                    {field: 'update_time', title: 'update_time'},
+                    {field: 'memo', title: 'memo'},
                     {field: 'action', title: 'Action', formatter: operation}
                 ]]
             });
